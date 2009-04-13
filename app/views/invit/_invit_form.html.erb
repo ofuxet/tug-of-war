@@ -1,0 +1,11 @@
+<% form_tag (:action => 'sendmail') do %>
+  <p>
+   Name: <%= text_field "invit", :name %>
+  </p>
+  <p>
+   Email: <%= text_field "invit", :email %>
+  </p>
+  <p>
+   <%= submit_tag 'Send an email' %>
+  </p>
+<% end %> 

@@ -1,0 +1,47 @@
+<h1>ME</h1>
+
+Loged = <%= session[:loged] %><br />
+User ID = <%= session[:user_id] %><br />
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Password</th>
+    <th>Money</th>
+    <th>Email</th>
+  </tr>
+
+  <tr>
+    <td><%=h @user.name %></td>
+    <td><%=h @user.password %></td>
+    <td><%=h @user.money %></td>
+    <td><%=h @user.email %></td>
+    <td><%= link_to 'Edit', '/home/editme' %></td>
+    <td><%= link_to 'Destroy', @user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</table>
+
+<br/>
+
+<table>
+  <tr>
+    <th>boss 1</th>
+    <th>boss 2</th>
+		<th>my team</th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.boss1_id %></td>
+    <td><%=h game.boss2_id %></td>
+		<td><%=h game.my_boss %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Home', :action => :index %>
+

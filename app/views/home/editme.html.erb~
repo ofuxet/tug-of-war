@@ -1,0 +1,31 @@
+<h1>Editing me</h1>
+
+Loged = <%= session[:loged] %><br />
+User ID = <%= session[:user_id] %><br />
+
+
+<% form_for(@user, :url => { :action => "update_me" }) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+    <%= f.label "New password" %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label "Confirm password" %><br />
+    <%= f.text_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<br/>
+
+<%= link_to 'Cancel', :action => :me %>
+<%= link_to 'Home', :action => :index %>
+
