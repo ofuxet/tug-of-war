@@ -28,6 +28,7 @@ Logged = <%= session[:logged] %><br />
 <% if session[:logged] %>
 	
 	<%= link_to 'My profile', :action => :me %>
+	<%= link_to 'Disconect', :action => :unlog %>
 
 <% else %>
 

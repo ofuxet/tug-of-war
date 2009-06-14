@@ -22,6 +22,13 @@ class HomeController < ApplicationController
 			redirect_to :action => "me"
 		end
 	end
+	
+	
+	def unlog
+		session[:logged] = false
+		session[:user_id] = -1;
+		redirect_to :action => "index"
+	end
 
 
 	def signup
@@ -39,12 +46,17 @@ class HomeController < ApplicationController
 
 
 	def me
-		if !session[:logged] then redirect_to :action => :index end
-		@user = User.find(session[:user_id])
-		@games = Game.find(:all,
+		if !session[:logged]
+			redirect_to :action => :index
+		elsif User.exists?(session[:user_id])
+			@user = User.find(session[:user_id])
+			@games = Game.find(:all,
 							:conditions => [ "g.id = p.game_id AND p.user_id = :user_id", { :user_id => session[:user_id] }],
 							:from => 'games AS g, players AS p',
 							:select => 'g.*, p.boss_id AS my_boss');
+		else
+			redirect_to :action => "index"
+		end
 	end
 
 	def editme
