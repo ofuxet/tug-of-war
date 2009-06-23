@@ -6,17 +6,16 @@ Feature: log in
 Scenario: good log in
 	Given I have initialized the database
 	And I am on the homepage
-	And I fill in "name" with "Yoann"
-	And I fill in "password" with "meteore"
-
+	And I fill in "user[name]" with "Yoann"
+	And I fill in "user[password]" with "meteore"
 	When I press "Loggin"
 	Then I should see "Logged = true"
 
 Scenario: wrong username
 	Given I have initialized the database
 	And I am on the homepage
-	And I fill in "name" with "Doesntexist"
-	And I fill in "password" with "meteore"
+	And I fill in "user[name]" with "Doesntexist"
+	And I fill in "user[password]" with "meteore"
 
 	When I press "Loggin"
 	Then I should see "Logged = false"
@@ -24,8 +23,8 @@ Scenario: wrong username
 Scenario: wrong password
 	Given I have initialized the database
 	And I am on the homepage
-	And I fill in "name" with "Yoann"
-	And I fill in "password" with "undefined"
+	And I fill in "user[name]" with "Yoann"
+	And I fill in "user[password]" with "undefined"
 
 	When I press "Loggin"
 	Then I should see "Logged = false"
