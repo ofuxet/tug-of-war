@@ -34,7 +34,7 @@ test: &TEST
   database: corde_test
   pool: 5
   username: root
-  password: plop
+  password:
   host: localhost
 
 production:
@@ -44,11 +44,8 @@ production:
   database: corde_production
   pool: 5
   username: root
-  password: plop
+  password: 
   host: localhost
-
-cucumber:
-  <<: *TEST
 
 cucumber:
   <<: *TEST

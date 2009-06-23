@@ -16,8 +16,10 @@ Scenario: bad signup
 	Given I am on the signup page
 	And I fill in "name" with "name_1"
 	And I fill in "password" with "p"
-	And I fill in "user[password_confirmation]" with "p"
+	And I fill in "user[password_confirmation]" with "p2"
 	And I fill in "email" with "myemail@server.com"
 	When I press "Sign up"
-	Then I should see "Your account has been created"
+	Then I should not see "Your account has been created"
+	And I should see "Password doesn't match confirmation"
+	And I should see "Password is too short"
 
