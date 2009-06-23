@@ -43,8 +43,7 @@ Logged = <%= session[:logged] %><br />
 	<% end %>
 	<br/>
 
-	Sign up :<br/>
-	<%= render :partial => "signup_form" %>
+	Sign up : <%= link_to 'Sign Up!', :action => :signup_form %>
 
 <% end %>
 

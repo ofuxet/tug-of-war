@@ -1,0 +1,10 @@
+
+Given /^that I have written a too short password : "([^\"]*)"$/ do |arg1|
+  pending
+end
+
+
+When /^I submit the form$/ do
+  pending
+end
+

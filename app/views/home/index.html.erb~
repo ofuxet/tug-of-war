@@ -23,26 +23,27 @@
 
 <br />
 
-Loged = <%= session[:loged] %><br />
+Logged = <%= session[:logged] %><br />
 
-<% if session[:loged] %>
+<% if session[:logged] %>
 	
 	<%= link_to 'My profile', :action => :me %>
+	<%= link_to 'Disconect', :action => :unlog %>
 
 <% else %>
 
-	Login :<br/>
-	<% form_tag '/home/login' do %>
+	Loggin :<br/>
+	<% form_tag '/home/loggin' do %>
 
 		NickName: <%= text_field "user", "name" %>
 		Password: <%= text_field "user", "password" %>
 
-		<%= submit_tag 'Login' %>
+		<%= submit_tag 'Loggin' %>
 
 	<% end %>
 	<br/>
 
-	Sign up :<br/>
+	Sign up : <%= link_to 'Sign Up!', :action => :signup_form %>
 	<%= render :partial => "signup_form" %>
 
 <% end %>

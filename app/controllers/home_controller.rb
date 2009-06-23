@@ -8,6 +8,14 @@ class HomeController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
+  
+  	def signup_form
+  		@user = User.new
+  		respond_to do |format|
+			format.html # signup_form.html.erb
+			format.xml  { render :xml => @user }
+		end
+	end
 
 
 	def loggin
@@ -39,9 +47,16 @@ class HomeController < ApplicationController
 		@user.email = params[:user][:email]
 		@user.money = 1000
 		if @user.save
-      flash[:notice] = 'User was successfully created.'
-      redirect_to :action => "me"
-    end
+	      flash[:notice] = 'User was successfully created.'
+	      redirect_to :action => "confirm_signup"
+	    end
+	end
+	
+	def confirm_signup
+		respond_to do |format|
+			format.html # confirm_signup.html.erb
+			format.xml  { render :xml => @user }
+		end
 	end
 
 
